@@ -2,13 +2,6 @@ pipeline{
     agent any
 
     stages{
-        stage("git pull"){
-            steps{
-                script{
-                    git branch: "master", changelog: false, url: "https://github.com/DeepankVarshney/spring-boot-rest-example.git"
-                }
-            }
-        }
         stage("maven"){
             steps{
                 script{
