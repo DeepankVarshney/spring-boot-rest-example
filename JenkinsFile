@@ -14,9 +14,9 @@ pipeline{
                 script{
                     withMaven(maven: "mavenTool")
                     {
-                    sh(script:"""
+                    sh"""
                         mvn clean package
-                    """)
+                    """
                     }
                 }
             }
