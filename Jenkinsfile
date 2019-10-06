@@ -25,7 +25,7 @@ pipeline{
             steps{
                 script{
                     withCredentials([sshUserPrivateKey(credentialsId: "ssh-build", keyFileVariable: "key")]){
-                        sh"""ssh -i ${key} ubuntu@54.236.9.207
+                        sh"""ssh -t -i ${key} ubuntu@54.236.9.207
                              touch 1.new
                         """
                     }
