@@ -36,7 +36,7 @@ pipeline{
                     }
                 }
             }
-        }    
+        }
         stage("s3-upload"){
             steps{
                 script{
@@ -47,5 +47,4 @@ pipeline{
             }
         }
     }
-}
 }
