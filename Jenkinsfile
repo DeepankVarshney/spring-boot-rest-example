@@ -26,17 +26,17 @@ pipeline{
                 }
             }
         }
-        stage("ssh-test"){
-            steps{
-                script{
-                    withCredentials([sshUserPrivateKey(credentialsId: "ssh-build", keyFileVariable: "key",  usernameVariable: 'userName')]){
-                        remote.user = userName
-                        remote.identityFile = key
-                        sshCommand remote: remote, command: 'java -jar -Dspring.profiles.active=test ~/target/spring-boot-rest-example-0.5.0.war &'
-                    }
-                }
-            }
-        }
+        // stage("ssh-test"){
+        //     steps{
+        //         script{
+        //             withCredentials([sshUserPrivateKey(credentialsId: "ssh-build", keyFileVariable: "key",  usernameVariable: 'userName')]){
+        //                 remote.user = userName
+        //                 remote.identityFile = key
+        //                 sshCommand remote: remote, command: 'java -jar -Dspring.profiles.active=test ~/target/spring-boot-rest-example-0.5.0.war &'
+        //             }
+        //         }
+        //     }
+        // }
         stage("s3-upload"){
             steps{
                 script{
