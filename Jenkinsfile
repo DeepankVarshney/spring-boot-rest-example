@@ -35,7 +35,7 @@ pipeline{
             steps{
                 script{
                     sh"""
-                        aws s3 cp /home/ubuntu/target/*.war s3://bucket-test-for-ec2
+                        $(which aws) s3 cp /home/ubuntu/target/*.war s3://bucket-test-for-ec2
                     """
                 }
             }
