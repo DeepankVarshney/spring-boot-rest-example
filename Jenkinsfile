@@ -41,7 +41,7 @@ pipeline{
             steps{
                 script{
                     sh"""
-                        aws s3 cp /var/lib/jenkins/workspace/test_pipe/target/*.war s3://bucket-test-for-ec2
+                        aws s3 cp /var/lib/jenkins/workspace/java-build/target/*.war s3://bucket-test-for-ec2
                     """
                 }
             }
