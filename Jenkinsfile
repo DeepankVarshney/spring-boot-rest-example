@@ -59,7 +59,7 @@ pipeline{
             steps{
                 script{
                     sh"""
-                        aws elbv2 describe-target-health  --target-group-arn arn:aws:elasticloadbalancing:us-east-1:159714198409:targetgroup/jenkins-test/236f8f6029b6913a
+                        aws elbv2 describe-target-health  --target-group-arn arn:aws:elasticloadbalancing:us-east-1:159714198409:targetgroup/jenkins-test/236f8f6029b6913a --region us-east-1
 
                     """
 
