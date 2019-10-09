@@ -50,7 +50,7 @@ pipeline{
             steps{
                 script{
                     sh"""
-                        aws autoscaling set-desired-capacity --desired-capacity 4 --auto-scaling-group-name jenkins-test
+                        aws autoscaling set-desired-capacity --desired-capacity 4 --auto-scaling-group-name jenkins-test --region us-east-1
                     """
                 }
             }
