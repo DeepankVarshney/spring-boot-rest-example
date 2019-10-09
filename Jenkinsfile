@@ -82,7 +82,8 @@ pipeline{
                     // done
                     // """
                     sh"""
-                        ./home/ubuntu/script.sh
+                        cd /home/ubuntu
+                        ./script.sh
                     """
                 }
             }
