@@ -46,5 +46,26 @@ pipeline{
                 }
             }
         }
+        stage("ASG-increase"){
+            steps{
+                script{
+                    sh"""
+                        aws autoscaling set-desired-capacity --desired-capacity 4 --auto-scaling-group-name jenkins-test
+                    """
+                }
+            }
+        }
+        stage("health-check"){
+            steps{
+                scripts{
+                    sh"""
+                        aws elbv2 describe-target-health  --target-group-arn arn:aws:elasticloadbalancing:us-east-1:159714198409:targetgroup/jenkins-test/236f8f6029b6913a
+
+                    """
+
+                }
+            }
+        }
+
     }
 }
