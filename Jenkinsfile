@@ -64,7 +64,7 @@ pipeline{
                         while true; do
                                 count=0
                                 aws elbv2 describe-target-health  --target-group-arn arn:aws:elasticloadbalancing:us-east-1:159714198409:targetgroup/jenkins-test/236f8f6029b6913a --region \$reg | grep "State" | tee state_check.txt
-                                input="/home/ubuntu/state_check.txt"
+                                input='/home/ubuntu/state_check.txt'
                                 if [[ \$(wc -l state_check.txt | awk '{print \$1}') == 4 ]]; then
                                         while IFS= read -r line
                                         do
@@ -72,7 +72,7 @@ pipeline{
                                                 if [[ \$a = \$health ]]; then
                                                         count=`expr \$count + 1`
                                                 fi
-                                        done < \$input
+                                        done < $input
                                         if [[ \$count -eq 4 ]]; then
                                                 break
                                         fi
