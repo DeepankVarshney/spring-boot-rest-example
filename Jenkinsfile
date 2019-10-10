@@ -85,5 +85,14 @@ pipeline{
                 }
             }
         }
+        stage("ASG-increase"){
+            steps{
+                script{
+                    sh"""
+                        aws autoscaling set-desired-capacity --desired-capacity 2 --auto-scaling-group-name jenkins-test --region us-east-1
+                    """
+                }
+            }
+        }
     }
 }
