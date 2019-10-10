@@ -85,7 +85,7 @@ pipeline{
                 }
             }
         }
-        stage("ASG-increase"){
+        stage("ASG-decrease"){
             steps{
                 script{
                     sh"""
